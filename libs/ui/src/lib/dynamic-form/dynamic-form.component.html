@@ -1,11 +1,26 @@
- 
-<form [formGroup]="dynamicFormService.formGroup">
+
+<ng-container *ngIf="ready">
+
+
+
+<form  [formGroup]="formGroup">
 
     <label for="first-name">First Name: </label>
     <input id="first-name" type="text" formControlName="firstName">
 
-    <ng-content></ng-content>
+    <div *ngFor="let field of fields">
+      <ng-container *ngIf="field!=='field5'">
+        <label for="{{field}}">{{field}}: </label>
+        <input id="{{field}}" type="text" formControlName="{{field}}">
+      </ng-container>
 
+      <ng-container *ngIf="field==='field5'">
+        <ng-content select=[field5]></ng-content>
+      </ng-container>
+
+    </div>
+
+   
   </form>
 
-  {{dynamicFormService.formGroup.value | json}} 
+</ng-container>  

@@ -1,14 +1,11 @@
 <nx-workspace-dynamic-form>
 
-    <!-- <nx-workspace-app1-input></nx-workspace-app1-input> -->
-    <form [formGroup]="dynamicFormService.formGroup">
+    <ng-container field5 *ngIf="formGroup" [formGroup]="formGroup">
         <label for="last-name">Last Name: </label>
         <input id="last-name" type="text" formControlName="lastName">
-    
-    </form>
-
+        {{formGroup.value | json}}
+    </ng-container>
 
 </nx-workspace-dynamic-form>
 
 
-<!-- {{dynamicFormService.formGroup.value | json}} -->
