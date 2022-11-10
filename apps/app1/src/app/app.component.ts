@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { DynamicFormService } from '@nx-workspace/common-services';
+
+
 
 @Component({
   selector: 'nx-workspace-root',
@@ -7,4 +10,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app1';
+
+  constructor(public dynamicFormService:DynamicFormService) {}
+
 }
