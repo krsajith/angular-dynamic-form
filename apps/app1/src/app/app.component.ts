@@ -22,12 +22,11 @@ export class AppComponent implements AfterViewInit {
   }
 
   async init() {
-    const  fields = Array.from(new Array(14),(val,index)=> "field" + (index+1) );
+    const  fields = Array.from(new Array(8),(val,index)=> "field" + (index+1) );
     console.log(fields);
     this.formGroup = await this.dynamicFormService.buildForm();
     this.dynamicFormComponent.showForm(this.formGroup,fields);
     this.changeDetectorRef.detectChanges();
-
   }
 
 }
